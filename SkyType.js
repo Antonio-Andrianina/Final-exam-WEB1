@@ -1,4 +1,56 @@
-// Gestion du mode jour/nuit
+
+function toggleDropdown(id) {
+    document.getElementById(id).classList.toggle('show');
+    
+
+    const allDropdowns = document.querySelectorAll('.dropdown-content');
+    allDropdowns.forEach(dropdown => {
+        if (dropdown.id !== id && dropdown.classList.contains('show')) {
+            dropdown.classList.remove('show');
+        }
+    });
+}
+
+window.onclick = function(event) {
+    if (!event.target.matches('.nav-button')) {
+        const dropdowns = document.querySelectorAll('.dropdown-content');
+        dropdowns.forEach(dropdown => {
+            if (dropdown.classList.contains('show')) {
+                dropdown.classList.remove('show');
+            }
+        });
+    }
+}
+
+
+function loadUserEmail() {
+    const savedEmail = localStorage.getItem('savedEmail');
+    if (savedEmail) {
+        document.getElementById('userEmail').textContent = savedEmail;
+    } else {
+        document.getElementById('userEmail').textContent = "Non connecté";
+    }
+}
+
+
+function logout() {
+    if (confirm("Voulez-vous vraiment vous déconnecter ?")) {
+        localStorage.removeItem('savedEmail');
+        localStorage.removeItem('savedPassword');
+        window.location.href = 'login.html';
+    }
+}
+
+
+document.getElementById('fontSelector').addEventListener('change', function() {
+    document.body.style.fontFamily = this.value;
+});
+
+
+window.onload = loadUserEmail;
+
+
+
 const themeToggleBtn = document.getElementById('theme-toggle');
 themeToggleBtn.addEventListener('click', toggleTheme);
 
@@ -11,7 +63,7 @@ function toggleTheme() {
   }
 }
 
-// Génération dynamique des étoiles réparties sur toute la fenêtre, centrées horizontalement
+
 document.addEventListener('DOMContentLoaded', generateStars);
 function generateStars() {
   const starsContainer = document.querySelector('#celestial .stars');
@@ -28,7 +80,7 @@ function generateStars() {
   }
 }
 
-// Textes à taper selon la difficulté
+
 const texts = {
   "easy": "Le chat dort sur le canapé.",
   "medium": "Les oiseaux chantent dans les arbres pendant que les enfants jouent dans le parc.",
@@ -58,13 +110,12 @@ let seconds = 0;
 
 difficultyButtons.forEach(button => {
   button.addEventListener('click', () => {
-    // Réinitialisation des boutons de difficulté
+    
     difficultyButtons.forEach(btn => btn.classList.remove('active'));
     button.classList.add('active');
     
     selectedDifficulty = button.getAttribute('data-difficulty');
     
-    // Animation fluide du changement de texte: fade-out puis fade-in
     if (textToType.textContent) {
       textToType.classList.add('fade-out');
       setTimeout(() => {
