@@ -1,0 +1,86 @@
+body {
+    background-color: #518fcd;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.login-container {
+    max-width: 450px;
+    margin: 5% auto;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    background: white;
+}
+.social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    font-weight: 500;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+.social-btn:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+.google {
+    background-color: #DB4437;
+}
+.facebook {
+    background-color: #4267B2;
+}
+.twitter {
+    background-color: #1DA1F2;
+}
+.divider {
+    text-align: center;
+    margin: 20px 0;
+    position: relative;
+}
+.divider::before, .divider::after {
+    content: "";
+    flex: 1;
+    border-bottom: 1px solid #ddd;
+    position: absolute;
+    top: 50%;
+    width: 45%;
+}
+.divider::before {
+    right: 55%;
+}
+.divider::after {
+    left: 55%;
+}
+.loader {
+    display: none;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+.btn-with-loader {
+    position: relative;
+}
+.btn-loader {
+    display: none;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 2px solid rgba(255,255,255,0.3);
+    border-top: 2px solid white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+}

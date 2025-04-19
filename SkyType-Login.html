@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <script src="assets/js/bootstrap.min.js" defer></script>
+    <link rel="stylesheet" href="SkyType-Login.css">
+    <link rel="stylesheet" href="fontaw-6/css/all.css">
+    
+</head>
+<body>
+    <div class="container">
+        <div class="login-container">
+            <h2 class="text-center mb-4">Connexion</h2>
+            
+          
+            <form id="loginForm">
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" required>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Mot de passe</label>
+                    <input type="password" class="form-control" id="password" required>
+                </div>
+                <div class="d-grid mb-3 position-relative">
+                    <button type="submit" class="btn btn-primary btn-with-loader">
+                        Se connecter
+                        <span class="btn-loader"></span>
+                    </button>
+                </div>
+                <div class="text-center mb-3">
+                    <a href="#" class="text-decoration-none">Mot de passe oublié ?</a>
+                </div>
+            </form>
+            
+          
+            <div class="divider">
+                <span class="px-2">OU</span>
+            </div>
+            
+           
+            <div class="social-login">
+                <a href="#" class="social-btn google" id="googleLogin">
+                    <i class="fab fa-google me-2"></i> Continuer avec Google
+                    <span class="btn-loader"></span>
+                </a>
+                <a href="#" class="social-btn facebook" id="facebookLogin">
+                    <i class="fab fa-facebook-f me-2"></i> Continuer avec Facebook
+                    <span class="btn-loader"></span>
+                </a>
+                <a href="#" class="social-btn twitter" id="twitterLogin">
+                    <i class="fab fa-twitter me-2"></i> Continuer avec Twitter
+                    <span class="btn-loader"></span>
+                </a>
+            </div>
+            
+            <div id="globalLoader" class="loader my-3"></div>
+            
+            <div class="text-center mt-3">
+                <p>Pas encore de compte ? <a href="#" class="text-decoration-none">S'inscrire</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="SkyType-Login.js"></script>

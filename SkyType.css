@@ -1,4 +1,3 @@
-/* Variables par défaut pour le mode jour */
 :root {
   --bg-gradient: linear-gradient(270deg, #87CEFA, #fff, #87CEFA);
   --bg-size: 400% 400%;
@@ -8,10 +7,12 @@
   --button-border: #87CEFA;
   --button-hover-bg: #87CEFA;
   --button-active-bg: #007acc;
-  /* On avait auparavant une couleur de fond pour le conteneur du test, ici nous la rendons transparente */
+
 }
 
-/* Variables pour le mode nuit */
+
+
+
 body.dark-mode {
   --bg-gradient: linear-gradient(270deg, #2c3e50, #000, #2c3e50);
   --text-color: #f1f1f1;
@@ -22,7 +23,7 @@ body.dark-mode {
   --button-active-bg: #888;
 }
 
-/* Corps de la page */
+
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   max-width: 800px;
@@ -36,6 +37,79 @@ body {
   overflow-x: hidden;
   transition: background 0.5s, color 0.5s;
 }
+.navbar {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: #2c3e50;
+  color: white;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  z-index: 1000;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.nav-options {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.nav-button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.nav-button:hover {
+  background-color: #34495e;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: #f9f9f9;
+  min-width: 200px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.dropdown-content a, .dropdown-content div {
+  color: #333;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  cursor: pointer;
+}
+
+.dropdown-content a:hover, .dropdown-content div:hover {
+  background-color: #f1f1f1;
+}
+
+.show {
+  display: block;
+}
 
 h1 {
   text-align: center;
@@ -45,7 +119,7 @@ h1 {
   animation: fadeIn 1s ease;
 }
 
-/* Bouton du thème */
+
 #theme-toggle {
   position: absolute;
   top: 20px;
@@ -59,7 +133,7 @@ h1 {
   transition: background 0.3s, color 0.3s;
 }
 
-/* Conteneur céleste couvrant toute la fenêtre */
+
 #celestial {
   position: absolute;
   top: 0;
@@ -70,7 +144,7 @@ h1 {
   z-index: 2;
 }
 
-/* Afficher le soleil en mode jour et les étoiles en mode nuit */
+/*soleil et lune */
 body:not(.dark-mode) .sun {
   display: block;
 }
@@ -101,7 +175,7 @@ body.dark-mode .stars {
   50% { transform: scale(1.05); }
 }
 
-/* Style des étoiles */
+
 .star {
   position: absolute;
   width: 4px;
@@ -118,7 +192,7 @@ body.dark-mode .stars {
   100% { opacity: 0.5; transform: scale(1); }
 }
 
-/* Nuages animés */
+
 .clouds {
   position: absolute;
   top: 0;
@@ -161,7 +235,7 @@ body.dark-mode .stars {
   animation: moveCloud 40s linear infinite;
 }
 
-/* Boutons de difficulté */
+
 #difficulties {
   text-align: center;
   margin-bottom: 20px;
@@ -191,7 +265,7 @@ body.dark-mode .stars {
   border-color: var(--button-active-bg);
 }
 
-/* Conteneur du test avec fond transparent et centré */
+
 #test-container {
   background: transparent;
   padding: 20px;
@@ -207,7 +281,7 @@ body.dark-mode .stars {
   margin-bottom: 15px;
 }
 
-/* Classes de transition */
+
 .fade-in {
   animation: fadeIn 0.5s ease forwards;
 }
@@ -216,7 +290,7 @@ body.dark-mode .stars {
   animation: fadeOut 0.4s ease forwards;
 }
 
-/* Zone de saisie centrée */
+
 #test-area {
   width: 80%;
   height: 150px;
