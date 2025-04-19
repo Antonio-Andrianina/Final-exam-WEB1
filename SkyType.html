@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>SkyTap</title>
+  <link rel="stylesheet" href="Test.css">
+</head>
+<body>
+  <button id="theme-toggle">Mode Nuit</button>
+  
+  <div id="celestial">
+    <div class="sun"></div>
+    <div class="stars"></div>
+  </div>
+
+  <h1>SkyTap</h1>
+  
+  <div id="difficulties">
+    <button data-difficulty="easy">Facile</button>
+    <button data-difficulty="medium">Moyen</button>
+    <button data-difficulty="hard">Difficile</button>
+  </div>
+  
+  <div id="test-container" class="fade-in" style="display: none;">
+    <p id="text-to-type"></p>
+    <textarea id="test-area" placeholder="Commencez à taper ici..." disabled></textarea>
+    <p id="timer">Temps : 0 s</p>
+    <button id="start-btn">Démarrer</button>
+
+    <div class="progress-container">
+      <svg class="progress-ring" width="120" height="120">
+        <circle class="progress-ring__circle"
+                stroke="#007acc" stroke-width="8"
+                fill="transparent" r="50" cx="60" cy="60"/>
+        <text x="60" y="65" text-anchor="middle" class="progress-text">0%</text>
+      </svg>
+    </div>
+  </div>
+
+  <div id="results" class="fade-in" style="display: none;">
+    <div class="result-circle" id="time-progress">
+      <svg class="result-ring" width="120" height="120">
+         <circle class="result-ring__circle" stroke="#ff9800" stroke-width="8"
+                 fill="transparent" r="50" cx="60" cy="60"/>
+         <text x="60" y="65" text-anchor="middle" class="result-text">0 s</text>
+      </svg>
+      <p>Temps</p>
+    </div>
+    <div class="result-circle" id="wpm-progress">
+      <svg class="result-ring" width="120" height="120">
+         <circle class="result-ring__circle" stroke="#2196F3" stroke-width="8"
+                 fill="transparent" r="50" cx="60" cy="60"/>
+         <text x="60" y="65" text-anchor="middle" class="result-text">0</text>
+      </svg>
+      <p>WPM</p>
+    </div>
+    <div class="result-circle" id="accuracy-progress">
+      <svg class="result-ring" width="120" height="120">
+         <circle class="result-ring__circle" stroke="#4CAF50" stroke-width="8"
+                 fill="transparent" r="50" cx="60" cy="60"/>
+         <text x="60" y="65" text-anchor="middle" class="result-text">0%</text>
+      </svg>
+      <p>Accuracy</p>
+    </div>
+  </div>
+  
+  <div id="stats"></div>
+  
+  <script src="Test.js"></script>
+</body>
+</html>

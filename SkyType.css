@@ -1,0 +1,350 @@
+/* Variables par défaut pour le mode jour */
+:root {
+  --bg-gradient: linear-gradient(270deg, #87CEFA, #fff, #87CEFA);
+  --bg-size: 400% 400%;
+  --text-color: #333;
+  --heading-color: #555;
+  --button-bg: #fff;
+  --button-border: #87CEFA;
+  --button-hover-bg: #87CEFA;
+  --button-active-bg: #007acc;
+  /* On avait auparavant une couleur de fond pour le conteneur du test, ici nous la rendons transparente */
+}
+
+/* Variables pour le mode nuit */
+body.dark-mode {
+  --bg-gradient: linear-gradient(270deg, #2c3e50, #000, #2c3e50);
+  --text-color: #f1f1f1;
+  --heading-color: #ddd;
+  --button-bg: #333;
+  --button-border: #555;
+  --button-hover-bg: #555;
+  --button-active-bg: #888;
+}
+
+/* Corps de la page */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background: var(--bg-gradient);
+  background-size: var(--bg-size);
+  animation: gradientAnimation 15s ease infinite;
+  color: var(--text-color);
+  position: relative;
+  overflow-x: hidden;
+  transition: background 0.5s, color 0.5s;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 60px;
+  margin-bottom: 20px;
+  color: var(--heading-color);
+  animation: fadeIn 1s ease;
+}
+
+/* Bouton du thème */
+#theme-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  padding: 8px 16px;
+  border: 2px solid var(--button-border);
+  background: var(--button-bg);
+  color: var(--text-color);
+  border-radius: 20px;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Conteneur céleste couvrant toute la fenêtre */
+#celestial {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Afficher le soleil en mode jour et les étoiles en mode nuit */
+body:not(.dark-mode) .sun {
+  display: block;
+}
+body:not(.dark-mode) .stars {
+  display: none;
+}
+body.dark-mode .sun {
+  display: none;
+}
+body.dark-mode .stars {
+  display: block;
+}
+
+.sun {
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle, #FFEB3B, #FFC107);
+  border-radius: 50%;
+  box-shadow: 0 0 20px 5px rgba(255,235,59,0.8);
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  animation: pulse 3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+/* Style des étoiles */
+.star {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: #fff;
+  border-radius: 50%;
+  opacity: 0.5;
+  animation: twinkle 2s infinite ease-in-out;
+}
+
+@keyframes twinkle {
+  0% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.1); }
+  100% { opacity: 0.5; transform: scale(1); }
+}
+
+/* Nuages animés */
+.clouds {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.cloud {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  box-shadow: 0 0 20px rgba(255,255,255,0.5);
+}
+
+.cloud1 {
+  width: 150px;
+  height: 80px;
+  top: 30px;
+  left: -200px;
+  animation: moveCloud 50s linear infinite;
+}
+
+.cloud2 {
+  width: 200px;
+  height: 100px;
+  top: 80px;
+  left: -250px;
+  animation: moveCloud 70s linear infinite;
+}
+
+.cloud3 {
+  width: 120px;
+  height: 60px;
+  top: 120px;
+  left: -150px;
+  animation: moveCloud 40s linear infinite;
+}
+
+/* Boutons de difficulté */
+#difficulties {
+  text-align: center;
+  margin-bottom: 20px;
+  animation: fadeIn 1s ease;
+}
+
+#difficulties button {
+  margin: 5px;
+  font-size: 16px;
+  padding: 10px 20px;
+  cursor: pointer;
+  background: var(--button-bg);
+  border: 2px solid var(--button-border);
+  border-radius: 20px;
+  transition: background 0.3s, transform 0.3s, color 0.3s;
+}
+
+#difficulties button:hover {
+  background: var(--button-hover-bg);
+  color: #fff;
+  transform: scale(1.05);
+}
+
+#difficulties button.active {
+  background: var(--button-active-bg);
+  color: #fff;
+  border-color: var(--button-active-bg);
+}
+
+/* Conteneur du test avec fond transparent et centré */
+#test-container {
+  background: transparent;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  margin: 20px auto;
+  text-align: center;
+  animation: fadeIn 1s ease;
+}
+
+#text-to-type {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+/* Classes de transition */
+.fade-in {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.fade-out {
+  animation: fadeOut 0.4s ease forwards;
+}
+
+/* Zone de saisie centrée */
+#test-area {
+  width: 80%;
+  height: 150px;
+  font-size: 16px;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  margin: 0 auto;
+  resize: none;
+  transition: border-color 0.3s;
+}
+
+#test-area:focus {
+  border-color: #007acc;
+}
+
+#timer {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+#start-btn {
+  display: block;
+  margin: 15px auto;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background: #007acc;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  transition: background 0.3s, transform 0.3s;
+}
+
+#start-btn:hover {
+  background: #005ea6;
+  transform: scale(1.05);
+}
+
+/* Cercle de progression */
+.progress-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.progress-ring {
+  transform: rotate(-90deg);
+  overflow: visible;
+}
+
+.progress-ring__circle {
+  transition: stroke-dashoffset 0.35s ease;
+  transform-origin: center;
+}
+
+.progress-text {
+  font-size: 20px;
+  font-weight: bold;
+  fill: var(--text-color);
+  transform: rotate(90deg);
+}
+
+/* Zone de résultats fixée (affichée en haut au centre) */
+#results {
+  position: fixed;
+  top: 50px;
+  left: 75%;
+  transform: translateX(-50%);
+  z-index: 10;
+  text-align: center;
+  animation: fadeIn 1s ease 0.5s forwards;
+}
+
+.result-circle {
+  display: inline-block;
+  margin: 10px;
+  animation: bounce 1s ease;
+}
+
+.result-ring {
+  transform: rotate(-90deg);
+  overflow: visible;
+}
+
+.result-ring__circle {
+  transition: stroke-dashoffset 0.35s ease;
+  transform-origin: center;
+}
+
+.result-text {
+  font-size: 20px;
+  font-weight: bold;
+  fill: var(--text-color);
+  transform: rotate(90deg);
+}
+
+#stats {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 20px;
+  color: #007acc;
+  animation: fadeIn 1s ease forwards;
+}
+
+/* Animations */
+@keyframes gradientAnimation {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+@keyframes moveCloud {
+  0% { transform: translateX(-200%); }
+  100% { transform: translateX(150%); }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: scale(1); }
+  40% { transform: scale(1.15); }
+  60% { transform: scale(0.95); }
+}
